@@ -53,7 +53,7 @@ app.get("*", function(req,res){
 })
 
 const getWeather = function(center, callback){
-  const url = "https://api.darksky.net/forecast/" + credentials.DARK_SKY_SECRET_KEY + "/"
+  const url = "https://api.darksky.net/forecast/" + darksky_secret_key + "/"
               +center[1] + "," + center[0] + "?lang=es&units=si"
 
   request({url, json: true}, function(error, response){
@@ -79,7 +79,7 @@ const getWeather = function(center, callback){
 
 const getCoordinates = function(city, callback){
   const url = "https://api.mapbox.com/geocoding/v5/mapbox.places/" + city +
-              ".json?access_token=" + credentials.MAPBOX_TOKEN
+              ".json?access_token=" + mapbox_token
   request({url, json: true}, function(error,response){
     if(error){
       callback(error, undefined)
