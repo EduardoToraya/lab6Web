@@ -1,5 +1,3 @@
-const credentials = require("./credentials.js")
-
 const request = require("request")
 
 const express = require("express")
