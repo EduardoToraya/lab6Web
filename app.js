@@ -17,7 +17,6 @@ else{
 }
 
 
-
 app.get("/weather", function(req,res){
   if(!req.query.search){
     res.send({
