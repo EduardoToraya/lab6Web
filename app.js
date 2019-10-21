@@ -98,21 +98,24 @@ const getCoordinates = function(city, callback){
   })
 }
 
-getCoordinates("Tabasco", function(error, center){
-  if(error){
-    console.log(error)
-  }
-  else{
-    getWeather(center, function(error2, output){
-      if(error2){
-        console.log(error2)
-      }
-      else{
-        console.log(output)
-      }
-    })
-  }
-})
+const search = function(city){
+  getCoordinates(city, function(MBerror, center){
+    if(MBerror){
+      return MBerror
+    }
+    else{
+      getWeather(center, function(DSerror, output){
+        if(DSerror){
+          return DSerror
+        }
+        else{
+          console.log(output)
+          return output
+        }
+      })
+    }
+  })
+}
 
 app.listen(port, function(){
   console.log("Listening on port " + port)
